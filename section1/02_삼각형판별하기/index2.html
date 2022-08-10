@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer = "YES",
+          max = arguments[0];
+
+        let sum = a + b + c;
+
+        for (let i = 1; i < arguments.length; i++) {
+          if (arguments[i] > max) {
+            max = arguments[i];
+          }
+        }
+
+        if (sum - max <= max) {
+          answer = "NO";
+        }
+
+        return answer;
+      }
+
+      console.log(solution(1, 2, 3)); // NO
+      console.log(solution(6, 7, 11)); // YES
+      console.log(solution(13, 33, 17)); // NO
+    </script>
+  </body>
+</html>
