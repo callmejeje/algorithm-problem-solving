@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+
+        // 9C7 === 9C2 === 36
+        // arr의 모든 값의 합에서 100을 빼준 값으로 나머지 두명을 찾을 수 있다.
+
+        let sum = arr.reduce((acc, el) => acc + el);
+        let twosum = sum - 100;
+
+        for (let i = 0; i < arr.length - 1; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] + arr[j] === twosum) {
+              arr.splice(j, 1);
+              arr.splice(i, 1);
+              answer = arr;
+              return answer;
+            }
+          }
+        }
+
+        return answer;
+      }
+
+      let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
