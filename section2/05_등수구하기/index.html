@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+
+        let originArr = arr.slice();
+        let sorted = arr.sort((a, b) => b - a);
+        // originArr    === [87, 89, 92, 100, 76]
+        // sorted === [100, 92, 89, 87, 76]
+
+        for (let i = 0; i < sorted.length; i++) {
+          if (answer[answer.length - 1] === sorted[i]) {
+            answer.push(answer[answer.length - 1]);
+          } else {
+            answer.push(sorted.indexOf(originArr[i]) + 1);
+          }
+        }
+
+        return answer;
+      }
+
+      let arr = [87, 89, 92, 100, 76];
+      console.log(solution(arr));
+
+      arr = [87, 100, 100, 100, 76];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

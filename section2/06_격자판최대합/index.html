@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        // 1. for (let i = 0; i < arr.length; i++) // 행 순회
+        // 2. for (let i = 0; i < arr.length; i++) // 열 순회
+        // 3, 4. // 두 대각선
+        let answer = 0;
+        let sum = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          sum = arr[i].reduce((el1, el2) => el1 + el2);
+          if (sum > answer) answer = sum;
+          sum = 0;
+        }
+
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr.length; j++) {
+            sum += arr[j][i];
+          }
+          if (sum > answer) answer = sum;
+          sum = 0;
+        }
+
+        let sum1 = (sum2 = 0);
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr.length; j++) {
+            if (i === j) {
+              sum1 += arr[i][j];
+            }
+            if (i + j === 4) {
+              sum2 += arr[i][j];
+            }
+          }
+        }
+        answer = Math.max(sum1, sum2, answer);
+
+        return answer;
+      }
+
+      let arr = [
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
