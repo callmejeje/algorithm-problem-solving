@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = false;
+        let reverse = "";
+        s = s.toLowerCase();
+
+        for (let i = s.length - 1; i >= 0; i--) {
+          reverse += s[i];
+        }
+
+        if (reverse === s) answer = true;
+
+        return answer;
+      }
+
+      let str = "goooG";
+      console.log(solution(str));
+      str = "asdfd";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
