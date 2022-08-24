@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "NO";
+
+        s = s.toLowerCase();
+        s = s.split("");
+
+        let onlyAlphabet = s.filter((char) => /[a-z]/.test(char));
+
+        let reverse = "";
+        for (let i = onlyAlphabet.length - 1; i >= 0; i--) {
+          reverse += onlyAlphabet[i];
+        }
+
+        onlyAlphabet = onlyAlphabet.join("");
+        if (onlyAlphabet === reverse) answer = "YES";
+
+        return answer;
+      }
+
+      let str = "found7, time: study; Yduts; emit, 7Dnuof";
+      console.log(solution(str));
+      str = "asdf;;lkj";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
