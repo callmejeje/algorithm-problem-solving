@@ -1,12 +1,12 @@
 function solution(s) {
   let vote = new Map();
 
-  for (let i = 0, count; i < s.length; i++) {
-    count = vote.get(s[i]);
+  for (let student of s) {
+    let count = vote.get(student);
     if (count) {
-      vote.set(s[i], count + 1);
+      vote.set(student, count + 1);
     } else {
-      vote.set(s[i], 1);
+      vote.set(student, 1);
     }
   }
 
